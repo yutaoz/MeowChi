@@ -1,0 +1,18 @@
+const Discord = require("discord.js");
+
+module.exports = {
+    name: '[help',
+    description: 'Displays commands',
+    execute(msg, args) {
+        const commandEmbed = new Discord.MessageEmbed()
+            .setColor("#F2BAC9")
+            .setTitle("Commands")
+            .addFields(
+                { name: "[reg", value: "Registers user so you can start rating!" },
+                { name: "[rate <@user> <score>", value: "Rates a user"}
+            );
+
+        msg.channel.send(commandEmbed);
+    }
+
+}
