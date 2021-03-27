@@ -16,7 +16,10 @@ module.exports = {
                     accountName: msg.author.username,
                     accountId: msg.author.id,
                     displayPic: msg.author.avatarURL(),
-                    score: 'N/A'
+                    score: 'N/A',
+                    totalScore: 0,
+                    numRatings: 0,
+                    lastRate: 'N/A'
                 }
 
                 db.collection("accounts").insertOne(data, function(err, res) {
@@ -44,7 +47,9 @@ module.exports = {
             }
         }
 
-        initFuncs.find().then((response) => {
+        initFuncs.find(msg.author.id).then((response) => {
+            console.log(msg.author.id);
+            console.log(response);
             checkInit(response);
         });
 

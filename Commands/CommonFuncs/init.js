@@ -11,7 +11,7 @@ const find = async (userID) => {
         await client.connect();
         const db = client.db('meowchi');
 
-        if (await db.collection('accounts').countDocuments({accountID: userID}) != 0) {
+        if (await db.collection('accounts').countDocuments({accountId: userID}) !== 0) {
             found = true;
         }
     } catch (e) {

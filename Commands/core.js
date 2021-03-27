@@ -1,4 +1,5 @@
 module.exports = {
     help: require('./help'),
-    reg: require('./reg')
+    reg: require('./reg'),
+    rate: require('./rate')
 }
