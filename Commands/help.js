@@ -9,7 +9,9 @@ module.exports = {
             .setTitle("Commands")
             .addFields(
                 { name: "[reg", value: "Registers user so you can start rating!" },
-                { name: "[rate <@user> <score>", value: "Rates a user"}
+                { name: "[rate <@user> <score>", value: "Rates a user"},
+                { name: "[score", value: "Shows user's rating"},
+                { name: "[boards", value: "Shows leaderboard of ratings"}
             );
 
         msg.channel.send(commandEmbed);
