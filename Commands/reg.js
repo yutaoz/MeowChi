@@ -19,7 +19,8 @@ module.exports = {
                     score: 'N/A',
                     totalScore: 0,
                     numRatings: 0,
-                    lastRate: 'N/A'
+                    lastRate: 'N/A',
+                    comments: []
                 }
 
                 db.collection("accounts").insertOne(data, function(err, res) {
