@@ -48,15 +48,15 @@ module.exports = {
                         .setTitle("Leaderboard")
                         .addFields(
                             { name: `1. ${(boardValues[0] ? boardValues[0].user : "None yet!")}`, 
-                            value: `Score: ${(boardValues[0] ? boardValues[0].score : "None yet!")}` },
+                            value: `Score: ${(boardValues[0] ? boardValues[0].score.toFixed(1) : "None yet!")}` },
                             { name: `2. ${(boardValues[1] ? boardValues[1].user : "None yet!")}`, 
-                            value: `Score: ${(boardValues[1] ? boardValues[1].score : "None yet!")}` },
+                            value: `Score: ${(boardValues[1] ? boardValues[1].score.toFixed(1) : "None yet!")}` },
                             { name: `3. ${(boardValues[2] ? boardValues[2].user : "None yet!")}`, 
-                            value: `Score: ${(boardValues[2] ? boardValues[2].score : "None yet!")}` },
+                            value: `Score: ${(boardValues[2] ? boardValues[2].score.toFixed(1) : "None yet!")}` },
                             { name: `4. ${(boardValues[3] ? boardValues[3].user : "None yet!")}`, 
-                            value: `Score: ${(boardValues[3] ? boardValues[3].score : "None yet!")}` },
+                            value: `Score: ${(boardValues[3] ? boardValues[3].score.toFixed(1) : "None yet!")}` },
                             { name: `5. ${(boardValues[4] ? boardValues[4].user : "None yet!")}`, 
-                            value: `Score: ${(boardValues[4] ? boardValues[4].score : "None yet!")}` }
+                            value: `Score: ${(boardValues[4] ? boardValues[4].score.toFixed(1) : "None yet!")}` }
                         );
 
                     msg.channel.send(commandEmbed);

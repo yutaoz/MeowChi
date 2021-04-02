@@ -21,7 +21,7 @@ module.exports = {
                 if (user.score === "N/A") {
                     msg.reply(`you currently don't have a rating!`);
                 } else {
-                    msg.reply(`you're currently rated ${user.score} meowchis!`);
+                    msg.reply(`you're currently rated ${user.score.toFixed(1)} meowchis!`);
                 }
                 
             } catch (e) {
