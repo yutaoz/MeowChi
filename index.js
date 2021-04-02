@@ -13,7 +13,7 @@ bot.login(TOKEN);
 
 bot.on('ready', () => {
     console.info(`Logged in as ${bot.user.tag}`)
-    bot.user.setActivity("[commands");
+    bot.user.setActivity("[help");
 });
 
 bot.on('message', msg => {
