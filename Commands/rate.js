@@ -14,13 +14,13 @@ module.exports = {
                 var db = client.db("meowchi");
                 var receiver = await db.collection("accounts").findOne(
                     {accountId: sentId},
-                    {accountName: 1, score: 1, totalScore: 1, numRatings: 1}
+                    {accountName: 1, score: 1, totalScore: 1, numRatings: 1, displayPic: 1}
                 );
                 //accountName: msg.author.username
 
                 var sender = await db.collection("accounts").findOne(
                     {accountId: msg.author.id},
-                    {accountName: 1, score: 1, totalScore: 1, numRatings: 1}
+                    {accountName: 1, score: 1, totalScore: 1, numRatings: 1, displayPic: 1}
                 );
 
                 var weightedScore = (sender.score === "N/A" ? score * 3 : score * sender.score);
@@ -32,7 +32,7 @@ module.exports = {
                 await db.collection("accounts").updateOne(
                     {   accountId: msg.author.id },
                     {
-                        $set: {accountName: msg.author.username}
+                        $set: {accountName: msg.author.username, displayPic: msg.author.avatarURL()}
                     }
                 );
 
@@ -40,7 +40,7 @@ module.exports = {
                     await db.collection("accounts").updateOne(
                         {   accountId: sentId },
                         {
-                            $set: {accountName: mentioned.username, score: score, totalScore: weightedScore, numRatings: weightedRatings}
+                            $set: {accountName: mentioned.username, score: score, totalScore: weightedScore, numRatings: weightedRatings, displayPic: msg.mentions.users.first().avatarURL()}
                         }
                     );
                 } else {
