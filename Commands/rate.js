@@ -28,19 +28,18 @@ module.exports = {
                 var weightedRatings = (sender.score === "N/A" ? 3 : sender.score);
                 console.log(weightedRatings);
                 var mentioned = msg.mentions.users.first();
-
+                var target = msg.mentions.members.first();
                 await db.collection("accounts").updateOne(
                     {   accountId: msg.author.id },
                     {
                         $set: {accountName: msg.author.username, displayPic: msg.author.avatarURL()}
                     }
                 );
-
                 if (receiver.score === "NA") {
                     await db.collection("accounts").updateOne(
                         {   accountId: sentId },
                         {
-                            $set: {accountName: mentioned.username, score: score, totalScore: weightedScore, numRatings: weightedRatings, displayPic: msg.mentions.users.first().displayAvatarURL}
+                            $set: {accountName: mentioned.username, score: score, totalScore: weightedScore, numRatings: weightedRatings, displayPic: target.user.displayAvatarURL}
                         }
                     );
                 } else {
