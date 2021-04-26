@@ -40,7 +40,7 @@ module.exports = {
                     await db.collection("accounts").updateOne(
                         {   accountId: sentId },
                         {
-                            $set: {accountName: mentioned.username, score: score, totalScore: weightedScore, numRatings: weightedRatings, displayPic: msg.mentions.users.first().user.avatarURL()}
+                            $set: {accountName: mentioned.username, score: score, totalScore: weightedScore, numRatings: weightedRatings, displayPic: msg.mentions.users.first().displayAvatarURL}
                         }
                     );
                 } else {
